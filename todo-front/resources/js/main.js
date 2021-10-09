@@ -1,4 +1,4 @@
-var server = "http://todolist-api:8000/";
+var server = "http://todolist-api-naingyeminn-dev.apps.sandbox.x8i5.p1.openshiftapps.com/";
 var todolist_server = server + "todo"
 
 function getCompletedTodos(){
