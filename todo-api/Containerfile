@@ -13,4 +13,6 @@ LABEL maintainer="Naing Ye Minn <naingyeminn@gmail.com>"
 
 COPY --from=build-env /go/src/todo-api /app/todo-api
 
+EXPOSE 8000
+
 CMD ["/app/todo-api"]
