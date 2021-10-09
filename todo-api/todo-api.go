@@ -14,7 +14,7 @@ import (
 )
 
 
-var db, _ = gorm.Open("mysql", "root:root@/todolist?charset=utf8&parseTime=True&loc=Local")
+var db, _ = gorm.Open("mysql", "todouser:S3cr3t@tcp(tododb:3306)/todolist?charset=utf8&parseTime=True&loc=Local")
 
 type TodoItemModel struct{
 	Id int `gorm:"primary_key"`
