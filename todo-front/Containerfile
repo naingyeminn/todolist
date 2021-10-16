@@ -1,4 +1,7 @@
 FROM docker.io/library/nginx:latest
 LABEL maintainer="Naing Ye Minn <naingyeminn@gmail.com>"
 
+ENV TODOAPI_SERVER=localhost TODOAPI_PORT=8000
+
+COPY set_api_server.sh /docker-entrypoint.d/
 COPY . /usr/share/nginx/html
