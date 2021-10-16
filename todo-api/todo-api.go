@@ -2,6 +2,8 @@ package main
 
 import (
 	"io"
+	"fmt"
+	"os"
 	"net/http"
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
@@ -13,8 +15,14 @@ import (
 	"github.com/rs/cors"
 )
 
+var db_host = os.Getenv("DB_HOST")
+var db_user = os.Getenv("DB_USER")
+var db_pass = os.Getenv("DB_PASS")
 
-var db, _ = gorm.Open("mysql", "todouser:S3cr3t@tcp(tododb:3306)/todolist?charset=utf8&parseTime=True&loc=Local")
+var dbURL = fmt.Sprintf("%s:%s@tcp(%s:3306)/todolist?charset=utf8&parseTime=True&loc=Local", db_user, db_pass, db_host)
+
+var db, _ = gorm.Open("mysql", dbURL)
+
 
 type TodoItemModel struct{
 	Id int `gorm:"primary_key"`
